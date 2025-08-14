@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+  /* Colors (from design system) */
+  --color-white: #ffffff; /* color_ffffff */
+  --color-black: #000000; /* color_000000 */
+  --color-text-dark: #121212; /* color_121212 */
+  --color-neutral-303030: #303030; /* color_303030 */
+  --color-gray-d9: #d9d9d9; /* color_d9d9d9 */
+  --color-primary: #129575; /* color_129575 */
+  --color-warning: #ff9c00; /* color_ff9c00 */
+  --color-google-yellow: #ffc107; /* color_ffc107 */
+  --color-google-red: #ff3d00; /* color_ff3d00 */
+  --color-google-green: #4caf50; /* color_4caf50 */
+  --color-google-blue: #1976d2; /* color_1976d2 */
+
+  /* Radii (from styles/border_radius) */
+  --radius-10: 10px;
+  --radius-30: 30px;
+  --radius-100: 100px;
+
+  /* Shadows (from shadows/shadow_0) */
+  --shadow-0: 0 0 5px 3px #69696966;
+
+  /* Typography (from design_system.typography used by this screen) */
+  --font-poppins: 'Poppins', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-sf: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Typographic scales for this screen */
+  --fs-h1: 30px; --lh-h1: 45px; --fw-h1: 600; /* typo_60 */
+  --fs-subtitle: 20px; --lh-subtitle: 30px; --fw-subtitle: 400; /* typo_61 */
+  --fs-label: 14px; --lh-label: 21px; --fw-label: 400; /* typo_66 */
+  --fs-small: 11px; --lh-small: 16.5px; --fw-small: 400; /* typo_65/62 */
+  --fs-small-med: 11px; --lh-small-med: 16.5px; --fw-small-med: 500; /* typo_64 */
+  --fs-button: 16px; --lh-button: 24px; --fw-button: 600; /* typo_58 */
+
+  /* Spacing utilities (subset used on this screen) */
+  --space-0: 0;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-white);
+  color: var(--color-text-dark);
+  font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+.label {
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: var(--fw-label);
+  color: var(--color-text-dark);
+}
+
+.input {
+  width: 315px;
+  height: 55px;
+  border: 1.5px solid var(--color-gray-d9);
+  border-radius: var(--radius-10);
+  padding: 0 20px;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-dark);
+  background: var(--color-white);
+  outline: none;
+}
+.input::placeholder { color: var(--color-gray-d9); }
+
+.btn-primary {
+  width: 315px;
+  height: 60px;
+  border: none;
+  border-radius: var(--radius-10);
+  background: var(--color-primary); /* style_11 */
+  color: var(--color-white);
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+  font-weight: var(--fw-button);
+  position: absolute; /* positioned by screen CSS */
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-10); /* style_126 */
+  background: var(--color-white);
+  box-shadow: var(--shadow-0);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 375px; height: 44px;
+}
+.status-bar .time {
+  position: absolute;
+  left: 29.5px; top: 14px; /* from figma */
+  font-family: var(--font-sf);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.165px;
+  color: var(--color-neutral-303030); /* typo_67 color_303030 */
+}
+.status-bar .icons {
+  position: absolute;
+  right: 12px;
+  top: 16px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.status-bar .icons .cell,
+.status-bar .icons .wifi,
+.status-bar .icons .battery {
+  display: inline-block;
+}
+.status-bar .icons .cell {
+  width: 17px; height: 11px;
+  background: var(--color-neutral-303030);
+  -webkit-mask: linear-gradient(90deg, #000 0 23%, transparent 23% 100%),
+                 repeating-linear-gradient(90deg, #000 0 3px, transparent 3px 5px);
+  mask: linear-gradient(90deg, #000 0 23%, transparent 23% 100%),
+        repeating-linear-gradient(90deg, #000 0 3px, transparent 3px 5px);
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+}
+.status-bar .icons .wifi {
+  width: 16px; height: 11px;
+  border-top: 2px solid var(--color-neutral-303030);
+  border-radius: 50%;
+  position: relative;
+}
+.status-bar .icons .wifi::before,
+.status-bar .icons .wifi::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 2px solid var(--color-neutral-303030);
+  border-radius: 50%;
+}
+.status-bar .icons .wifi::before { top: 3px; width: 10px; height: 6px; }
+.status-bar .icons .wifi::after { top: 6px; width: 4px; height: 3px; }
+
+.status-bar .icons .battery {
+  width: 24.5px; height: 11.5px;
+  border: 1.2px solid var(--color-neutral-303030);
+  border-radius: 2px;
+  position: relative;
+}
+.status-bar .icons .battery::before {
+  content: "";
+  position: absolute;
+  right: -2px; top: 3.5px;
+  width: 1.5px; height: 4px;
+  background: var(--color-neutral-303030);
+  border-radius: 0.8px;
+}
+.status-bar .icons .battery .level {
+  position: absolute;
+  left: 2px; top: 2px;
+  width: 18px; height: 7.7px;
+  background: #4cd964; /* style_34 border fill approximation */
+  border-radius: 1.6px;
+}
+
+.home-indicator {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 375px; height: 34px;
+}
+.home-indicator .bar {
+  position: absolute;
+  width: 135px; height: 5px;
+  left: 120px; top: 21px; /* from figma */
+  background: var(--color-text-dark); /* style_32 color_121212 */
+  border-radius: var(--radius-100);
+}
+
+/* A11y utility */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

@@ -1,0 +1,233 @@
+.screen {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  background: var(--color-white); /* frame background color_ref color_ffffff */
+  border-radius: var(--radius-30); /* style_10 */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Title group (x:456->left:30, y:-336->top:94) */
+.title-group {
+  position: absolute;
+  left: 30px;
+  top: 94px;
+  width: 155px;
+  height: 75px;
+}
+.hello {
+  margin: 0;
+  font-family: var(--font-poppins);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: var(--fw-h1);
+  color: var(--color-black); /* typo_60 color_000000 */
+}
+.welcome {
+  margin: 0;
+  font-family: var(--font-poppins);
+  font-size: var(--fs-subtitle);
+  line-height: var(--lh-subtitle);
+  font-weight: var(--fw-subtitle);
+  color: var(--color-text-dark); /* typo_61 color_121212 */
+}
+
+/* Email input field (container x:456->30, y:-204->226; rect top inside: 26) */
+.input-field {
+  position: absolute;
+  width: 315px;
+  height: 81px;
+}
+.input-field .label {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.input-field .control {
+  position: absolute;
+  left: 0;
+  top: 26px;
+}
+.email { left: 30px; top: 226px; }
+.email .control .input { width: 315px; height: 55px; }
+
+/* Password input field (x:456->30, y:-93->337; rect top inside: 26) */
+.password { left: 30px; top: 337px; }
+.password-wrapper {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 315px;
+  height: 55px;
+}
+.password-wrapper input {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--color-gray-d9); /* style_30 */
+  border-radius: var(--radius-10);
+  padding: 0 44px 0 20px;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-dark);
+  background: var(--color-white);
+  outline: none;
+}
+.password-wrapper input::placeholder { color: var(--color-gray-d9); }
+.toggle-pass {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px; height: 24px;
+  border: none; background: transparent;
+  cursor: pointer;
+}
+
+/* Simple eye glyph (decorative) */
+.toggle-pass::before,
+.toggle-pass::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--color-gray-d9);
+  width: 18px; height: 12px;
+  border-bottom: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.toggle-pass::after {
+  width: 2px; height: 14px;
+  border: none;
+  background: var(--color-gray-d9);
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 1px;
+  opacity: 0;
+}
+.show .toggle-pass::after { opacity: 1; }
+
+/* Forgot Password (x:466->40, y:8->438) */
+.forgot-password {
+  position: absolute;
+  left: 40px;
+  top: 438px;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-small);
+  color: var(--color-warning); /* style_19 */
+}
+
+/* Primary "Sign In" button (x:456->30, y:50->480, w:315, h:60) */
+.sign-in-btn {
+  left: 30px;
+  top: 480px;
+}
+.btn-text {
+  position: absolute;
+  left: 115px;
+  top: 18px;
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+  font-weight: var(--fw-button);
+  color: var(--color-white);
+}
+.icon-arrow {
+  position: absolute;
+  left: 210px;
+  top: 20px;
+  width: 20px; height: 20px;
+}
+.icon-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 13.33px; height: 1.3px;
+  background: var(--color-black); /* style_3 used on strokes */
+  transform: translateY(-50%);
+}
+.icon-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 50%;
+  width: 6.1px; height: 6.1px;
+  border-right: 2px solid var(--color-black);
+  border-top: 2px solid var(--color-black);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Divider "Or Sign in With" (container x:516->90, y:130->560; lines at y:139->569) */
+.divider {
+  position: absolute;
+  left: 90px;
+  top: 560px;
+  width: 195px; height: 17px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.text {
+  font-family: var(--font-poppins);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: 500; /* typo_64 */
+  color: var(--color-gray-d9);
+}
+.line {
+  display: inline-block;
+  width: 50px; height: 0;
+  border-top: 1px solid var(--color-gray-d9); /* style_28 */
+}
+
+/* Social buttons */
+.social-google {
+  position: absolute;
+  left: 131px; /* 557 - 426 */
+  top: 597px;  /* 167 - (-430) */
+}
+.social-facebook {
+  position: absolute;
+  left: 200px; /* 626 - 426 */
+  top: 597px;
+}
+
+/* Google icon approximation using conic gradient for 4 colors */
+.g-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: conic-gradient(
+    var(--color-google-blue) 0 90deg,
+    var(--color-google-green) 90deg 180deg,
+    var(--color-google-yellow) 180deg 270deg,
+    var(--color-google-red) 270deg 360deg
+  );
+}
+
+/* Facebook icon */
+.fb-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  background: #035b81; /* style_26 */
+  color: var(--color-white);
+  font-weight: 700;
+  border-radius: 4px;
+  font-family: var(--font-poppins);
+  line-height: 1;
+}
+
+/* Sign up CTA (x:525->99, y:266->696) */
+.signup-text {
+  position: absolute;
+  left: 99px;
+  top: 696px;
+  font-family: var(--font-poppins);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: 500; /* typo_63 */
+  color: var(--color-black);
+}
+.signup-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Note: Home indicator and Status bar are styled via common.css global classes */
