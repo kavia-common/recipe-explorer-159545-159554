@@ -1,39 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 :root {
-  /* Colors (from design system) */
-  --color-white: #ffffff; /* color_ffffff */
-  --color-black: #000000; /* color_000000 */
-  --color-text-dark: #121212; /* color_121212 */
-  --color-neutral-303030: #303030; /* color_303030 */
-  --color-gray-d9: #d9d9d9; /* color_d9d9d9 */
-  --color-primary: #129575; /* color_129575 */
-  --color-warning: #ff9c00; /* color_ff9c00 */
-  --color-google-yellow: #ffc107; /* color_ffc107 */
-  --color-google-red: #ff3d00; /* color_ff3d00 */
-  --color-google-green: #4caf50; /* color_4caf50 */
-  --color-google-blue: #1976d2; /* color_1976d2 */
+  /* Colors (monochrome palette only) */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text-dark: #121212;            /* near-black for body text */
+  --color-neutral-303030: #303030;       /* dark gray for icons/accents */
+  --color-gray-d9: #d9d9d9;              /* light gray for borders/placeholders */
 
-  /* Radii (from styles/border_radius) */
+  /* Primary/action color is black for high-contrast CTA */
+  --color-primary: #000000;
+
+  /* Warning/info accent converted to gray to remain monochrome */
+  --color-warning: #555555;
+
+  /* Former Google colors -> neutral grays to avoid chroma */
+  --color-google-yellow: #d9d9d9;
+  --color-google-red: #a0a0a0;
+  --color-google-green: #808080;
+  --color-google-blue: #4d4d4d;
+
+  /* Radii */
   --radius-10: 10px;
   --radius-30: 30px;
   --radius-100: 100px;
 
-  /* Shadows (from shadows/shadow_0) */
+  /* Shadows (neutral) */
   --shadow-0: 0 0 5px 3px #69696966;
 
-  /* Typography (from design_system.typography used by this screen) */
+  /* Typography */
   --font-poppins: 'Poppins', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   --font-sf: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
 
-  /* Typographic scales for this screen */
-  --fs-h1: 30px; --lh-h1: 45px; --fw-h1: 600; /* typo_60 */
-  --fs-subtitle: 20px; --lh-subtitle: 30px; --fw-subtitle: 400; /* typo_61 */
-  --fs-label: 14px; --lh-label: 21px; --fw-label: 400; /* typo_66 */
-  --fs-small: 11px; --lh-small: 16.5px; --fw-small: 400; /* typo_65/62 */
-  --fs-small-med: 11px; --lh-small-med: 16.5px; --fw-small-med: 500; /* typo_64 */
-  --fs-button: 16px; --lh-button: 24px; --fw-button: 600; /* typo_58 */
+  /* Typographic scales */
+  --fs-h1: 30px; --lh-h1: 45px; --fw-h1: 600;
+  --fs-subtitle: 20px; --lh-subtitle: 30px; --fw-subtitle: 400;
+  --fs-label: 14px; --lh-label: 21px; --fw-label: 400;
+  --fs-small: 11px; --lh-small: 16.5px; --fw-small: 400;
+  --fs-small-med: 11px; --lh-small-med: 16.5px; --fw-small-med: 500;
+  --fs-button: 16px; --lh-button: 24px; --fw-button: 600;
 
-  /* Spacing utilities (subset used on this screen) */
+  /* Spacing utilities */
   --space-0: 0;
   --space-8: 8px;
   --space-10: 10px;
@@ -57,6 +63,14 @@ html, body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 
+/* Accessibility: strong visible focus across controls */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
+}
+
 .label {
   font-size: var(--fs-label);
   line-height: var(--lh-label);
@@ -77,25 +91,37 @@ button { font-family: inherit; cursor: pointer; }
   outline: none;
 }
 .input::placeholder { color: var(--color-gray-d9); }
+.input:focus {
+  border-color: var(--color-black);
+}
 
+/* Primary button (black background, white text) */
 .btn-primary {
   width: 315px;
   height: 60px;
-  border: none;
+  border: 1px solid var(--color-black);
   border-radius: var(--radius-10);
-  background: var(--color-primary); /* style_11 */
+  background: var(--color-primary); /* black */
   color: var(--color-white);
   font-size: var(--fs-button);
   line-height: var(--lh-button);
   font-weight: var(--fw-button);
   position: absolute; /* positioned by screen CSS */
+  transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+  opacity: 0.95;
+}
+.btn-primary:active {
+  transform: translateY(1px);
 }
 
+/* Social buttons stay neutral */
 .social-btn {
   width: 44px;
   height: 44px;
   border: none;
-  border-radius: var(--radius-10); /* style_126 */
+  border-radius: var(--radius-10);
   background: var(--color-white);
   box-shadow: var(--shadow-0);
   display: inline-flex;
@@ -103,6 +129,7 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: center;
 }
 
+/* Status bar */
 .status-bar {
   position: absolute;
   left: 0; top: 0;
@@ -110,12 +137,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .status-bar .time {
   position: absolute;
-  left: 29.5px; top: 14px; /* from figma */
+  left: 29.5px; top: 14px;
   font-family: var(--font-sf);
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.165px;
-  color: var(--color-neutral-303030); /* typo_67 color_303030 */
+  color: var(--color-neutral-303030);
 }
 .status-bar .icons {
   position: absolute;
@@ -176,7 +203,7 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   left: 2px; top: 2px;
   width: 18px; height: 7.7px;
-  background: #4cd964; /* style_34 border fill approximation */
+  background: var(--color-neutral-303030); /* changed from green to gray */
   border-radius: 1.6px;
 }
 
@@ -188,8 +215,8 @@ button { font-family: inherit; cursor: pointer; }
 .home-indicator .bar {
   position: absolute;
   width: 135px; height: 5px;
-  left: 120px; top: 21px; /* from figma */
-  background: var(--color-text-dark); /* style_32 color_121212 */
+  left: 120px; top: 21px;
+  background: var(--color-text-dark);
   border-radius: var(--radius-100);
 }
 
